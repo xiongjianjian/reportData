@@ -5,17 +5,15 @@ import java.util.Date;
 public class AdminUser {
     private Long userId;
 
-    private String saleName;
-
-    private String salePassword;
-
-    private String customerName;
+    private String customerCode;
 
     private String customerPassword;
 
-    private String mobile;
+    private String saleCode;
 
-    private String userCode;
+    private String salePassword;
+
+    private String mobile;
 
     private String realName;
 
@@ -27,6 +25,10 @@ public class AdminUser {
 
     private Date modifyDate;
 
+    private Integer roleCode;
+
+    private Integer loginMode;
+
     public Long getUserId() {
         return userId;
     }
@@ -35,28 +37,12 @@ public class AdminUser {
         this.userId = userId;
     }
 
-    public String getSaleName() {
-        return saleName;
+    public String getCustomerCode() {
+        return customerCode;
     }
 
-    public void setSaleName(String saleName) {
-        this.saleName = saleName == null ? null : saleName.trim();
-    }
-
-    public String getSalePassword() {
-        return salePassword;
-    }
-
-    public void setSalePassword(String salePassword) {
-        this.salePassword = salePassword == null ? null : salePassword.trim();
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName == null ? null : customerName.trim();
+    public void setCustomerCode(String customerCode) {
+        this.customerCode = customerCode == null ? null : customerCode.trim();
     }
 
     public String getCustomerPassword() {
@@ -67,20 +53,28 @@ public class AdminUser {
         this.customerPassword = customerPassword == null ? null : customerPassword.trim();
     }
 
+    public String getSaleCode() {
+        return saleCode;
+    }
+
+    public void setSaleCode(String saleCode) {
+        this.saleCode = saleCode == null ? null : saleCode.trim();
+    }
+
+    public String getSalePassword() {
+        return salePassword;
+    }
+
+    public void setSalePassword(String salePassword) {
+        this.salePassword = salePassword == null ? null : salePassword.trim();
+    }
+
     public String getMobile() {
         return mobile;
     }
 
     public void setMobile(String mobile) {
         this.mobile = mobile == null ? null : mobile.trim();
-    }
-
-    public String getUserCode() {
-        return userCode;
-    }
-
-    public void setUserCode(String userCode) {
-        this.userCode = userCode == null ? null : userCode.trim();
     }
 
     public String getRealName() {
@@ -121,5 +115,21 @@ public class AdminUser {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
+    }
+
+    public Integer getRoleCode() {
+        return roleCode;
+    }
+
+    public void setRoleCode(Integer roleCode) {
+        this.roleCode = roleCode;
+    }
+
+    public Integer getLoginMode() {
+        return loginMode;
+    }
+
+    public void setLoginMode(Integer loginMode) {
+        this.loginMode = loginMode;
     }
 }
