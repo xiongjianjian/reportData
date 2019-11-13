@@ -1,11 +1,9 @@
 package com.sapdata.admin.mysqlservice.impl;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.sapdata.admin.bean.AdminUser;
+import com.sapdata.admin.bean.AdminUserVo;
 import com.sapdata.admin.mapper.AdminUserMapper;
 import com.sapdata.admin.mysqlservice.AdminUserService;
-import com.sapdata.admin.util.DynamicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,13 +42,14 @@ public class AdminUserServiceImpl implements AdminUserService {
     }
 
     @Override
-    public PageInfo<AdminUser> findAll(AdminUser adminUser,Integer pageNo,Integer pageSize) {
-        pageNo = pageNo == null?1:pageNo;
-        pageSize = pageSize == null?8:pageSize;
-        PageHelper.startPage(pageNo, pageSize);
-        List<AdminUser> list=adminUserMapper.findAll(adminUser);
-        PageInfo<AdminUser> page = new PageInfo<AdminUser>(list);
-        return page;
+    public List<AdminUser> findAll(AdminUserVo adminUserVo) {
+        Integer pageNo = adminUserVo.getPageNo() == null?1:adminUserVo.getPageNo();
+        Integer pageSize = adminUserVo.getPageSize() == null?8:adminUserVo.getPageSize();
+        pageNo=(pageNo-1)*pageSize;
+        adminUserVo.setPageNo(pageNo);
+        adminUserVo.setPageSize(pageSize);
+        List<AdminUser> list=adminUserMapper.findAll(adminUserVo);
+        return list;
     }
 
     @Override
@@ -67,5 +66,10 @@ public class AdminUserServiceImpl implements AdminUserService {
         adminUser.setCustomerCode(customerCode);
         adminUser.setCustomerPassword(customerPassword);
         return adminUserMapper.checkUserByCustom(adminUser);
+    }
+
+    @Override
+    public Long countAll(AdminUserVo adminUserVo) {
+        return adminUserMapper.countAll(adminUserVo);
     }
 }

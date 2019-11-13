@@ -22,8 +22,14 @@
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
 
-  <select id="findAll" resultMap="BaseResultMap" parameterType="com.sapdata.admin.bean.AdminUser" >
+  <select id="findAll" resultMap="BaseResultMap" parameterType="com.sapdata.admin.bean.AdminUserVo" >
     select *
+    from t_admin_user
+    limit #{pageNo,jdbcType=INTEGER}, #{pageSize,jdbcType=INTEGER}
+  </select>
+
+  <select id="countAll" resultType="Long" parameterType="com.sapdata.admin.bean.AdminUserVo" >
+    select count(*)
     from t_admin_user
   </select>
 

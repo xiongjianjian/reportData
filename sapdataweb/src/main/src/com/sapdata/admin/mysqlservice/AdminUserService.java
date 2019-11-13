@@ -1,7 +1,7 @@
 package com.sapdata.admin.mysqlservice;
 
-import com.github.pagehelper.PageInfo;
 import com.sapdata.admin.bean.AdminUser;
+import com.sapdata.admin.bean.AdminUserVo;
 
 import java.util.List;
 
@@ -21,9 +21,11 @@ public interface AdminUserService {
 
     void updateByPrimaryKey(AdminUser adminUser);
 
-    PageInfo<AdminUser> findAll(AdminUser adminUser,Integer pageNo,Integer pageSize);
+    List<AdminUser> findAll(AdminUserVo adminUserVo);
 
     AdminUser checkUserBysSale(String saleCode, String salePassword);
 
     AdminUser checkUserByCustom(String customerCode, String customerPassword);
+
+    Long countAll(AdminUserVo adminUserVo);
 }
