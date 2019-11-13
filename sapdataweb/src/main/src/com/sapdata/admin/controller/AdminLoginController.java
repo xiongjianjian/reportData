@@ -33,7 +33,7 @@ public class AdminLoginController {
 		ModelAndView modelAndView = new ModelAndView();
 		if(StringUtils.isNotBlank(loginError)){
 			if(loginError.equals("1")){
-				modelAndView.addObject("loginError", "用户名和密码不能为空");
+				modelAndView.addObject("loginError", "用户名或密码不正确");
 			}else if(loginError.equals("2")){
 				modelAndView.addObject("loginError", "用户名不存在");
 			}

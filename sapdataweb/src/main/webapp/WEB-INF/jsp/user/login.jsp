@@ -35,17 +35,24 @@
             <tr>
                 <td><input type="password" name="password" class="login_input login_password"/></td>
             </tr>
-            <input type="hidden" name="roleCode"value="1"/>
-            <%--<tr>
+            <tr>
                 <td height="15" valign="bottom"></td>
             </tr>
             <tr>
-                <td><input type="password" name="password" class="login_input login_password"/></td>
-            </tr>--%>
+                <td>
+                    <select name="roleCode" style="height: 24px;width: 218px;">
+                        <option value="1">普通用户</option>
+                        <option value="2">销售员</option>
+                        <option value="3">管理员</option>
+                    </select>
+                </td>
+            </tr>
             <tr>
                 <td height="50" valign="bottom"><a class="btn btn-block btn-login" id="loginButton">登录</a></td>
             </tr>
-
+            <tr>
+                <td height="15" valign="bottom" style="color: red;">${loginError}</td>
+            </tr>
         </table>
     </form>
 </div>
