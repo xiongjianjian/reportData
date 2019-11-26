@@ -1,6 +1,7 @@
 package com.sapdata.admin.bean;
 
 import java.util.Date;
+import java.util.List;
 
 public class AdminUserVo {
     private Long userId;
@@ -32,6 +33,30 @@ public class AdminUserVo {
     private Integer pageNo;
 
     private Integer pageSize;
+
+    private Integer lastPage;
+
+    private List list;//存储返回列表
+
+    public List getList() {
+        return list;
+    }
+
+    public void setList(List list) {
+        this.list = list;
+    }
+
+    public Integer getLastPage() {
+        return lastPage;
+    }
+
+    public void setLastPage(Integer total, Integer pageSize) {
+        if (total % pageSize == 0) {
+            this.lastPage = total / pageSize;
+        } else {
+            this.lastPage = total / pageSize + 1;
+        }
+    }
 
     private Integer total;
 

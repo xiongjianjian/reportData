@@ -13,9 +13,9 @@ public interface AdminUserMapper {
 
     AdminUser selectByPrimaryKey(Long userId);
 
-    void updateByPrimaryKey(AdminUser adminUser);
+    void updateByPrimaryKey(AdminUserVo adminUserVo);
 
-    List<AdminUser> findAll(AdminUserVo adminUserVo);
+    List<AdminUserVo> findAll(AdminUserVo adminUserVo);
 
     AdminUser checkUserBysSale(AdminUser adminUser);
 
